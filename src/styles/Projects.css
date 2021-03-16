@@ -1,0 +1,110 @@
+@keyframes fade-in-projects {
+  from {
+    opacity: 0;
+    transform: translateY(700px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(300px);
+  }
+}
+
+#projects-cont {
+  height: calc(100vh - 73px);
+  overflow: hidden;
+  display: flex;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+  box-shadow: inset 0 0 0 5px rgba(0,0,0,0.1);
+  color: white;
+  text-align: center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition:
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+}
+
+
+
+/* Flex Items */
+.project > * {
+  text-align: center;
+  margin: 10px 0;
+  width: 100%;
+  transition: transform 0.5s;
+  padding: 0 20px
+}
+
+.project a {
+  margin-top: 30px;
+  animation: fade-in-projects 1s;
+  color: var(--light);
+  width: auto;
+}
+
+.project .display {
+  width: 80%;
+  height: auto;
+  margin-bottom: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.project video, .project img {
+  width: 100%;
+  height: 100%;
+}
+
+.project .canPlay {
+  cursor: pointer;
+}
+
+.project > *:first-child { transform: translateY(300px); }
+.project.open-active > *:first-child { transform: translateY(0); }
+.project > *:nth-child(1n+2) { transform: translateY(calc(100vh)); }
+.project.open-active > *:nth-child(1n+2) { transform: translateY(0); }
+
+.project.open {
+  flex: 4;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  #projects-cont {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .project {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    flex: 0 1 auto;
+  }
+
+  .project h3 {
+    animation: none;
+  }
+
+  .project > *:first-child { transform: translateY(0); }
+  .project.open-active > *:first-child { transform: translateY(0); }
+  .project > *:nth-child(1n+2) { transform: translateY(0); }
+  .project.open-active > *:nth-child(1n+2) { transform: translateY(0); }
+  .project.open {
+    flex: 0 1 auto;
+    font-size: 16px;
+  }
+}

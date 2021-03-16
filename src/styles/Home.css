@@ -1,0 +1,38 @@
+@keyframes fade-in-home {
+  from {
+    opacity: 0;
+    transform: translateY(350px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#home-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 73px);
+  background-color: var(--primary);
+  margin: 0;
+  color: var(--light);
+}
+
+.content {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h3 {
+  font-size: 2.5em;
+}
+
+#home-cont > * {
+  animation: fade-in-home 1s;
+}
+

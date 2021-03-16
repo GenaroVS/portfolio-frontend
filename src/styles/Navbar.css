@@ -1,0 +1,30 @@
+.nav {
+  font-size: 1.5rem;
+}
+
+.navbar-brand {
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.nav-link {
+  transition: border-bottom 150ms ease, transform 100ms linear;
+  border-bottom: 5px solid transparent;
+}
+
+.nav-link:active {
+  transform: scale(.9)
+}
+
+.nav-link:active,
+.nav-link:hover {
+  border-bottom: 5px solid var(--primary);
+}
+
+.active {
+  color: var(--primary) !important;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
