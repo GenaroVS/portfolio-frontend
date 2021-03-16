@@ -21,7 +21,7 @@ const links: link[] = [
     type: 'DSA'
   },
   {
-    text: 'Dynammic Programming',
+    text: 'Dynamic Programming',
     url: 'https://techdose.co.in/courses/dynamic-programming-course/',
     type: 'DSA'
   },
@@ -99,11 +99,6 @@ const links: link[] = [
     text: 'Console log tips',
     url: 'https://dev.to/ackshaey/level-up-your-javascript-browser-logs-with-these-console-log-tips-55o2',
     type: 'Fullstack'
-  },
-  {
-    text: 'Graphql Tutorials',
-    url: 'https://www.howtographql.com/',
-    type: 'Backend'
   },
   {
     text: '650+ Free Online Courses',

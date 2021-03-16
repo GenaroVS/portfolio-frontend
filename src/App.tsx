@@ -31,18 +31,18 @@ function App() {
         </Route>
       </Switch>
       <Switch>
-        <Route path='/'>
-          <Home profilePhoto={profile}/>
-        </Route>
-      </Switch>
-      <Switch>
-        <Route path='/contacts'>
+        <Route path='/contact'>
           <Contacts/>
         </Route>
       </Switch>
       <Switch>
         <Route path='/links'>
           <Links/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact path='/'>
+          <Home profilePhoto={profile}/>
         </Route>
       </Switch>
     </Router>
