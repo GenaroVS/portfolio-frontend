@@ -7,62 +7,45 @@ import Projects from './components/Projects';
 import Links from './components/Links';
 import getAssets from './components/getAssets';
 
-type props = {photos?: string[], videos?: string[]};
-
-type route = {
-  path: string,
-  component: React.FunctionComponent<props>,
-}
-
 function App() {
   const [photos, setPhotos] = useState<string[]>([])
   const [videos, setVideos] = useState<string[]>([])
+  const [profile, setProfile] = useState<string>('');
 
   useEffect(() => {
     getAssets('videos')
       .then(videosArr => setVideos(videosArr.sort()))
-      .then(() => getAssets('images'))
-      .then(imagesArr => setPhotos(imagesArr.sort()))
+      .then(() => getAssets('images/other'))
+      .then(images => setProfile(images[0]))
+      .then(() => getAssets('images/projects'))
+      .then(imagesArr => setPhotos(imagesArr))
       .catch(err => console.log(err));
   }, []);
-
-  var routes: route[] = [
-    {
-      path: '/projects',
-      component: Projects
-    },
-    {
-      path: '/contact',
-      component: Contacts
-    },
-    {
-      path: '/links',
-      component: Links
-    },
-    {
-      path: '/',
-      component: Home
-    }
-  ]
 
   return (
     <Router>
       <Navbar />
       <Switch>
-        {routes.map((route, i) => {
-          return route.path === '/projects' ? (
-            <Route key={i} path={route.path}>
-              <route.component photos={photos} videos={videos}/>
-            </Route>
-          ) : (
-            <Route key={i} path={route.path}>
-              <route.component />
-            </Route>
-          );
-        })}
+        <Route path='/projects'>
+          <Projects photos={photos} videos={videos}/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route path='/'>
+          <Home profilePhoto={profile}/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route path='/contacts'>
+          <Contacts/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route path='/links'>
+          <Links/>
+        </Route>
       </Switch>
     </Router>
-
   );
 }
 

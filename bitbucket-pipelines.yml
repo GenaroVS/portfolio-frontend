@@ -1,0 +1,55 @@
+image: node:10.15.3
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Testing
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run test
+  custom:
+    production:
+      - step:
+          name: Build and Zip
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run build
+            - apt-get update
+            - apt-get install -y zip
+            - zip -r frontend.zip . -x ./src/\* ./public/\* ./node_modules/\*
+          artifacts:
+            - frontend.zip
+      - step:
+          name: Upload to S3
+          script:
+            - pipe: atlassian/aws-code-deploy:0.2.5
+              variables:
+                AWS_DEFAULT_REGION: $AWS_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                COMMAND: 'upload'
+                APPLICATION_NAME: $AWS_APPLICATION_NAME
+                ZIP_FILE: 'frontend.zip'
+                S3_BUCKET: $S3_BUCKET
+                VERSION_LABEL: 'frontend-2.0.0'
+      - step:
+          name: Deploy to EC2
+          script:
+            - pipe: atlassian/aws-code-deploy:0.2.5
+              variables:
+                AWS_DEFAULT_REGION: $AWS_REGION
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                COMMAND: 'deploy'
+                APPLICATION_NAME: $AWS_APPLICATION_NAME
+                DEPLOYMENT_GROUP: $DEPLOYMENT_GROUP
+                WAIT: 'true'
+                S3_BUCKET: $S3_BUCKET
+                VERSION_LABEL: 'frontend-2.0.0'
+                IGNORE_APPLICATION_STOP_FAILURES: 'true'
+                FILE_EXISTS_BEHAVIOR: 'OVERWRITE'

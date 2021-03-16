@@ -15,7 +15,8 @@ const s3 = new S3Client({
 });
 
 const getAssets = (folder: string): Promise<string[]> => {
-  var folderKey = encodeURIComponent(folder) + "/";
+  var folderKey = folder + "/";
+  console.log(folderKey);
 
   return s3.send(new ListObjectsCommand({
     Prefix: folderKey,
