@@ -75,8 +75,9 @@ function Projects({ photos, videos }: props) {
             className='project'
             style={{backgroundColor: colors[i]}}
           >
+            <h3>{project.name}</h3>
             <a href={project.url} target='_blank' rel='noreferrer'>
-              <h3>{project.name}</h3>
+              <i className="fab fa-github fa-lg"></i>
             </a>
             <p>{project.desc}</p>
             <div className='display' onClick={(e) => {

@@ -5,7 +5,6 @@ import { skills } from '../data/index'
 type props = {profilePhoto: string}
 
 const Home = ({profilePhoto}: props) => {
-  console.log(profilePhoto);
   return (
     <section id='home-cont'>
       <div className='content'>
