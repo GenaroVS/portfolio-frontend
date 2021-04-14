@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.15",
     "@aws-sdk/client-cognito-identity": "^3.8.0",
     "@aws-sdk/client-s3": "^3.8.0",
     "@aws-sdk/credential-provider-cognito-identity": "^3.8.0",

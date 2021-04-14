@@ -5,9 +5,9 @@
 
 #contact-cont {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  font-size: 3em;
   width: 100%;
   height: calc(100vh - 73px);
   background-color: var(--secondary);
@@ -15,24 +15,84 @@
   color: black;
 }
 
-#contact-cont a {
-  display: flex !important;
+#contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  width: 100%;
+  margin: 0;
+}
+
+#contact-links a {
+  display: flex;
   align-items: center;
   margin-right: 20px;
   animation: fade-in 500ms linear;
 }
 
-#contact-cont i {
+#contact-links i {
   margin-right: 10px;
   animation: fade-in 500ms linear;
 }
 
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  font-weight: lighter;
+}
+
+.inputGroup label {
+  margin-bottom: 0.5rem;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  border-radius: 5px;
+  border: 1px solid var(--dark);
+  line-height: 1.5;
+  padding-left: 10px;
+  font-size: 1.3rem;
+  color: var(--dark);
+  height: calc(2.25rem + 2px);
+  width: 50vw;
+}
+
+textarea {
+  height: 200px !important;
+}
+
+.submit {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 30px;
+}
+
+#success {
+  animation: none;
+  color: var(--light);
+}
+
 @media only screen and (max-width: 768px) {
-  #contact-cont {
+  #contact-links {
     flex-direction: column;
   }
 
-  #contact-cont a {
-    margin: 0 0 20px 0;
+  #contact-links a {
+    margin: 20px 0;
+  }
+
+  #contact-cont {
+    height: 100%;
+    overflow: scroll;
   }
 }
