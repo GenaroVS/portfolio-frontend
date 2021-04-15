@@ -13,13 +13,13 @@ import {
 } from '@apollo/client';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001'
+  uri: 'https://portfolio.gvsalinas.com/gql'
 });
 
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache()
-})
+});
 
 ReactDOM.render(
   <ApolloProvider client={client}>
