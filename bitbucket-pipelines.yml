@@ -9,7 +9,7 @@ pipelines:
             - node
           script:
             - npm install
-            - npm run test
+            - npm run ci-test
   custom:
     production:
       - step:

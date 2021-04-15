@@ -30,6 +30,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "ci-test": "CI=true npm test",
     "test": "react-scripts test"
   },
   "eslintConfig": {
