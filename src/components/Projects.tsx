@@ -43,7 +43,7 @@ function Projects({ photos, videos }: props) {
         <>
           <img className='canPlay' src={photo} alt='Project screenshot' />
           <Modal>
-            <button ref={btnRef} onClick={(e) =>{
+            <button id='close-modal'ref={btnRef} onClick={(e) =>{
               e.stopPropagation();
               setShow(false);
             }}>

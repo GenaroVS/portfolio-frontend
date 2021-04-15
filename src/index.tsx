@@ -16,6 +16,8 @@ const httpLink = createHttpLink({
   uri: 'https://portfolio.gvsalinas.com/gql'
 });
 
+//'http://localhost:3001'
+
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache()

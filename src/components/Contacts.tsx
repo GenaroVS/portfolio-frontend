@@ -26,7 +26,7 @@ function Contacts() {
     body: ''
   });
 
-  const [sendEmail] = useMutation(SEND_EMAIL_MUTATION, {
+  const [sendEmail, {loading}] = useMutation(SEND_EMAIL_MUTATION, {
     variables: {
       email: formState.email,
       subject: formState.subject,
@@ -44,47 +44,53 @@ function Contacts() {
   })
 
   function getForm() {
-    return (
-      <section>
-        <div className='inputGroup'>
-          <label>Email</label>
-          <input
-            type='email'
-            value={formState.email}
-            onChange={(e) => setFormState({
-              ...formState,
-              email: e.target.value
-            })}>
-          </input>
-        </div>
-        <div className='inputGroup'>
-          <label>Subject</label>
-          <input
-            type='text'
-            value={formState.subject}
-            onChange={(e) => setFormState({
-              ...formState,
-              subject: e.target.value
-            })}>
-          </input>
-        </div>
-        <div className='inputGroup'>
-          <label>Message</label>
-          <textarea
-            value={formState.body}
-            onChange={(e) => setFormState({
-              ...formState,
-              body: e.target.value
-            })}>
-          </textarea>
-        </div>
-        <button onClick={() => sendEmail()} className='submit' type='submit'>Send</button>
-        {
-          formState.error &&
-          <div style={{position:'absolute'}}>{formState.error.message}</div>
-        }
-      </section>
-    )
+    if (loading) {
+      return <h1 id='success'>Sending...</h1>
+    } else if (formState.success) {
+      return <h1 id='success'>{formState.success}</h1>
+    } else {
+      return (
+        <section>
+          <div className='inputGroup'>
+            <label>Email</label>
+            <input
+              type='email'
+              value={formState.email}
+              onChange={(e) => setFormState({
+                ...formState,
+                email: e.target.value
+              })}>
+            </input>
+          </div>
+          <div className='inputGroup'>
+            <label>Subject</label>
+            <input
+              type='text'
+              value={formState.subject}
+              onChange={(e) => setFormState({
+                ...formState,
+                subject: e.target.value
+              })}>
+            </input>
+          </div>
+          <div className='inputGroup'>
+            <label>Message</label>
+            <textarea
+              value={formState.body}
+              onChange={(e) => setFormState({
+                ...formState,
+                body: e.target.value
+              })}>
+            </textarea>
+          </div>
+          <button onClick={() => sendEmail()} className='submit' type='submit'>Send</button>
+          {
+            formState.error &&
+            <div style={{position:'absolute'}}>{formState.error.message}</div>
+          }
+        </section>
+      )
+    }
   }
 
   return (
@@ -103,11 +109,7 @@ function Contacts() {
           <div>Gmail</div>
         </a>
       </section>
-      {
-        formState.success ?
-          <h1 id='success'>{formState.success}</h1> :
-          getForm()
-      }
+      { getForm() }
     </div>
   );
 }

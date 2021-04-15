@@ -42,6 +42,7 @@
   margin: 1rem 0;
   font-size: 1.3rem;
   font-weight: lighter;
+  width: 50vw;
 }
 
 .inputGroup label {
@@ -57,7 +58,6 @@
   font-size: 1.3rem;
   color: var(--dark);
   height: calc(2.25rem + 2px);
-  width: 50vw;
 }
 
 textarea {
@@ -93,6 +93,9 @@ textarea {
 
   #contact-cont {
     height: 100%;
-    overflow: scroll;
+  }
+
+  .inputGroup {
+    width: 80vw;
   }
 }

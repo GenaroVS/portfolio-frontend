@@ -30,25 +30,6 @@
   }
 }
 
-h1 {
-  animation: slide-up 1s linear;
-  font-size:  3rem;
-}
-
-h3 {
-  animation: slide-up 1s linear;
-  font-size: 2rem;
-}
-
-p {
-  animation: fade-in 1s linear 1s;
-  animation-fill-mode: backwards;
-  text-align: left;
-  margin-top: 30px;
-  font-size: 1.2rem;
-  line-height: 1.5em;
-  letter-spacing: .5px;
-}
 
 #home-cont {
   display: flex;
@@ -71,6 +52,26 @@ p {
   width: 40%;
 }
 
+.content h1 {
+  animation: slide-up 1s linear;
+  font-size:  3rem;
+}
+
+.content h3 {
+  animation: slide-up 1s linear;
+  font-size: 2rem;
+}
+
+.content p {
+  animation: fade-in 1s linear 1s;
+  animation-fill-mode: backwards;
+  text-align: left;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  line-height: 1.5em;
+  letter-spacing: .5px;
+}
+
 #conveyor {
   width: 90%;
   display: flex;
@@ -90,4 +91,25 @@ p {
     width: 100%;
     padding: 10px;
   }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content h3 {
+    font-size: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.8rem;
+  }
+
+  #home-cont {
+    padding: 50px;
+  }
+
+  .skill {
+    animation: slide 10s linear infinite;
+  }
+
 }
