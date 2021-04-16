@@ -5,7 +5,7 @@
   }
   to {
     opacity: 1;
-    transform: translateY(300px);
+    transform: translateY(250px);
   }
 }
 
@@ -83,7 +83,7 @@
 }
 
 
-.project > *:first-child { transform: translateY(300px); }
+.project > *:first-child { transform: translateY(250px); }
 .project.open-active > *:first-child { transform: translateY(0); }
 .project > *:nth-child(1n+2) { transform: translateY(calc(100vh)); }
 .project.open-active > *:nth-child(1n+2) { transform: translateY(0); }

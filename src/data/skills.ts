@@ -10,6 +10,7 @@ var skills: string[] =  [
   'Redis',
   'Nginx',
   'AWS S3 EC2 Codedeploy',
+  'OAuth 2.0',
   'Jest',
   'Enzyme',
   'New Relic',

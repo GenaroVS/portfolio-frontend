@@ -6,6 +6,41 @@ type link = {
 
 const links: link[] = [
   {
+    text: 'Dynamic Promise Queue',
+    url: 'https://medium.com/@karenmarkosyan/how-to-manage-promises-into-dynamic-queue-with-vanilla-javascript-9d0d1f8d4df5',
+    type: 'Fullstack'
+  },
+  {
+    text: 'Guide on useEffect',
+    url: 'https://overreacted.io/a-complete-guide-to-useeffect/',
+    type: 'Frontend'
+  },
+  {
+    text: 'Fetching Data w/ Hooks',
+    url: 'https://www.robinwieruch.de/react-hooks-fetch-data',
+    type: 'Frontend'
+  },
+  {
+    text: 'Javascript DSA Repo',
+    url: 'https://github.com/trekhleb/javascript-algorithms',
+    type: 'DSA'
+  },
+  {
+    text: 'SSL w/ Nginx',
+    url: 'https://www.sitepoint.com/configuring-nginx-ssl-node-js/',
+    type: 'Backend'
+  },
+  {
+    text: 'SSL Best Practices',
+    url: 'https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices',
+    type: 'Backend'
+  },
+  {
+    text: 'Neumorphism',
+    url: 'https://neumorphism.io/#e0e0e0',
+    type: 'Frontend'
+  },
+  {
     text: 'System Design Questions',
     url: 'https://medium.com/javarevisited/25-software-design-interview-questions-to-crack-any-programming-and-technical-interviews-4b8237942db0',
     type: 'DSA'
@@ -140,6 +175,16 @@ const links: link[] = [
     url: 'https://www.feynmanlectures.caltech.edu/I_22.html',
     type: 'Random Reading'
   },
+  {
+    text: '7 Mnemonic Techniques',
+    url: 'https://theutopianlife.com/2014/02/04/supercharge-memory-7-mnemonic-techniques-put-practice-today/',
+    type: 'Random Reading'
+  },
+  {
+    text: 'MRU Economics',
+    url: 'https://mru.org/learn',
+    type: 'Random Reading'
+  }
 ];
 
 export default links;

@@ -10,9 +10,9 @@
 ); */
 
 $theme-colors: (
-  "primary": #C8102E,
-  "secondary": #00B2A9,
-  "danger": #7C0014
+  "primary" :rgb(200, 16, 46),
+  "secondary": rgb(0, 178, 169),
+  "danger": rgb(124, 0, 20)
 );
 
 @import '~bootstrap/scss/bootstrap.scss';

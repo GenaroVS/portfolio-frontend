@@ -8,14 +8,33 @@ const SEND_EMAIL_MUTATION = gql`
   }
 `;
 
-
-
 interface form {
   email: string;
   subject: string;
   body: string;
   error?: ApolloError;
   success?: string;
+}
+
+const throttle = (func: Function, limit: number): Function => {
+  let lastFunc: ReturnType<typeof setTimeout>
+  let lastRan: number
+  return function(this: Function) {
+    const context = this;
+    const args = arguments;
+    if (!lastRan) {
+      func.apply(context, args);
+      lastRan = Date.now();
+    } else {
+      clearTimeout(lastFunc);
+      lastFunc = setTimeout(function() {
+        if ((Date.now() - lastRan) >= limit) {
+          func.apply(context, args);
+          lastRan = Date.now();
+        }
+      }, limit - (Date.now() - lastRan))
+    }
+  }
 }
 
 function Contacts() {
@@ -41,7 +60,9 @@ function Contacts() {
       });
     },
     onError: err => setFormState({ ...formState, error: err })
-  })
+  });
+
+  const sendEmailTHR = throttle(sendEmail, 1000);
 
   function getForm() {
     if (loading) {
@@ -83,7 +104,7 @@ function Contacts() {
               })}>
             </textarea>
           </div>
-          <button onClick={() => sendEmail()} className='submit' type='submit'>Send</button>
+          <button onClick={() => sendEmailTHR()} className='submit' type='submit'>Send</button>
           {
             formState.error &&
             <div style={{position:'absolute'}}>{formState.error.message}</div>
