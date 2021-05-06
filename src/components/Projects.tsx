@@ -41,7 +41,7 @@ function Projects({ photos, videos }: props) {
     if (project.display === 'video' && show === project.name) {
       return (
         <>
-          <img className='canPlay' src={photo} alt='Project screenshot' />
+          <img className='screenshot' src={photo} alt='Project screenshot' />
           <Modal>
             <button id='close-modal'ref={btnRef} onClick={(e) =>{
               e.stopPropagation();
@@ -54,9 +54,13 @@ function Projects({ photos, videos }: props) {
         </>
       )
     } else if (project.display === 'video') {
-      return <img className='canPlay' src={photo} alt='Project screenshot' />
+      return <img className='screenshot' src={photo} alt='Project screenshot' />
     } else if (project.display === 'photo') {
-      return <img src={photo} alt='Project screenshot' />
+      return (
+        <a href={project.siteUrl} target='_blank' rel='noreferrer'>
+          <img className='screenshot' src={photo} alt='Project screenshot' />
+        </a>
+      )
     }
 
     return null;
@@ -76,7 +80,12 @@ function Projects({ photos, videos }: props) {
             style={{backgroundColor: colors[i]}}
           >
             <h3>{project.name}</h3>
-            <a href={project.url} target='_blank' rel='noreferrer'>
+            <a
+              className='github'
+              href={project.githubUrl}
+              target='_blank'
+              rel='noreferrer'
+            >
               <i className="fab fa-github fa-lg"></i>
             </a>
             <p>{project.desc}</p>

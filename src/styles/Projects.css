@@ -44,7 +44,7 @@
   padding: 0 20px
 }
 
-.project .display {
+.display {
   width: 80%;
   height: auto;
   margin-bottom: 0;
@@ -53,12 +53,20 @@
   padding: 0;
 }
 
+.display:hover {
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.1);
+}
+
 .project video, .project img {
   width: 100%;
   height: 100%;
 }
 
-.project .canPlay { cursor: pointer;}
+.screenshot {
+  cursor: pointer;
+  transition: box-shadow 100ms linear;
+}
+
 
 .project h3 {
   margin-top: 30px;
@@ -74,7 +82,7 @@
   border-bottom: 2px solid var(--light);
 }
 
-.project a {
+.github {
   position: absolute;
   top: 10px;
   right: 10px;
