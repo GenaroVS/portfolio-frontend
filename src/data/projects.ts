@@ -32,11 +32,11 @@ const projects:project[] = [
     display: 'photo'
   },
   {
-    name: 'TicTacToe',
-    desc: 'The classic 2-player game',
-    githubUrl: 'https://github.com/GenaroVS/TicTacToe',
-    siteUrl: 'https://github.com/GenaroVS/TicTacToe',
-    tools: 'Pure Javascript',
+    name: 'Mini-Games',
+    desc: 'Catalog of arcade games',
+    githubUrl: 'https://github.com/GenaroVS/mini-games',
+    siteUrl: 'http://games.gvsalinas.com',
+    tools: 'Node.js - React',
     display: 'photo'
   },
 ];
